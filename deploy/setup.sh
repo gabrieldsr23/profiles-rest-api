@@ -20,12 +20,12 @@ git clone $PROJECT_GIT_URL $PROJECT_BASE_PATH
 
 python3 -m venv $PROJECT_BASE_PATH/env
 
-$PROJECT_BASE_PATH/env/bin/pip install -r $PROJECT_BASE_PATH/requirements.txt uwsgi==2.0.23
+$PROJECT_BASE_PATH/env/bin/pip3 install -r $PROJECT_BASE_PATH/requirements.txt uwsgi==2.0.23
 
 echo "Running migrations..."
 
 # Run migrations
-$PROJECT_BASE_PATH/env/bin/python $PROJECT_BASE_PATH/manage.py migrate
+$PROJECT_BASE_PATH/env/bin/python3 $PROJECT_BASE_PATH/manage.py migrate
 
 # Setup Supervisor to run our uwsgi process.
 cp $PROJECT_BASE_PATH/deploy/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_api.conf
